@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P2P Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <h1>P2P Chat</h1>
+        <p>Instant browser-to-browser chat on GitHub Pages with username pick + smooth animations.</p>
+      </div>
+      <div class="badge">Static site / no server required</div>
+    </header>
+
+    <section class="panel">
+      <div class="panel-row">
+        <label for="username">Your name</label>
+        <input id="username" placeholder="Pick a username" autocomplete="off" />
+        <button id="saveName">Save</button>
+      </div>
+      <p class="info-text">Enter a name, then use the signaling text exchange between two browser windows to connect.</p>
+    </section>
+
+    <section class="panel split-grid">
+      <div>
+        <h2>Step 1: Create or paste offer</h2>
+        <button id="createOffer" class="primary">Create Offer</button>
+        <textarea id="localSignal" readonly placeholder="Offer / answer text appears here"></textarea>
+        <div class="control-row">
+          <button id="copyLocal">Copy code</button>
+        </div>
+      </div>
+      <div>
+        <h2>Step 2: Paste remote code</h2>
+        <textarea id="remoteSignal" placeholder="Paste the other browser's offer or answer here"></textarea>
+        <div class="control-row">
+          <button id="setRemoteOffer">Set Remote Offer</button>
+          <button id="setRemoteAnswer">Set Remote Answer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel status-panel">
+      <div>
+        <strong>Status:</strong>
+        <span id="connectionStatus">Not connected</span>
+      </div>
+      <div>
+        <strong>Peer:</strong>
+        <span id="peerName">---</span>
+      </div>
+    </section>
+
+    <section class="panel chat-panel">
+      <div class="chat-box" id="chatBox"></div>
+      <div class="message-row">
+        <input id="messageInput" placeholder="Type your message" autocomplete="off" />
+        <button id="sendMessage" class="primary">Send</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Open this page in two browser tabs or two different devices. Use the generated codes to connect.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

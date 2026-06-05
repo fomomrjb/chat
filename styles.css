@@ -1,0 +1,221 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top left, #222244 0%, #0f1224 40%, #02030b 100%);
+  color: #e8eef7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.hero p {
+  margin: 12px 0 0;
+  max-width: 680px;
+  color: #b8c0db;
+}
+
+.badge {
+  align-self: start;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(100, 120, 255, 0.16);
+  color: #d7e2ff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.panel {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(16, 20, 40, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  animation: slideIn 0.45s ease both;
+}
+
+.split-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.panel-row,
+.control-row,
+.message-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+input,
+textarea,
+button {
+  border: none;
+  border-radius: 16px;
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #eef3ff;
+  outline: none;
+  resize: vertical;
+  min-height: 44px;
+}
+
+textarea {
+  min-height: 160px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+button {
+  min-width: 130px;
+  padding: 14px 18px;
+  color: #fff;
+  background: #5662ff;
+  box-shadow: 0 16px 40px rgba(86, 98, 255, 0.16);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 45px rgba(86, 98, 255, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.primary {
+  background: linear-gradient(135deg, #6a73ff 0%, #5565ff 100%);
+}
+
+.info-text,
+.footer p {
+  color: #95a0c1;
+  margin: 12px 0 0;
+}
+
+.status-panel {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.chat-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.chat-box {
+  min-height: 260px;
+  padding: 18px;
+  background: rgba(11, 14, 30, 0.9);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-y: auto;
+}
+
+.message-row {
+  gap: 12px;
+}
+
+.message-row input {
+  flex: 1;
+}
+
+.message {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  max-width: 80%;
+  line-height: 1.5;
+  animation: popIn 0.24s ease;
+}
+
+.message.you {
+  margin-left: auto;
+  background: linear-gradient(135deg, rgba(86, 98, 255, 0.18), rgba(86, 98, 255, 0.08));
+  border: 1px solid rgba(86, 98, 255, 0.22);
+}
+
+.message.them {
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.message .meta {
+  display: block;
+  margin-bottom: 6px;
+  color: #a8b0d5;
+  font-size: 0.85rem;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .message-row,
+  .control-row,
+  .panel-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,6 @@
+# Git ignore for static web app
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+*.log
